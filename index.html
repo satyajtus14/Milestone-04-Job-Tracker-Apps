@@ -4,8 +4,316 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JOB TRACKER | Apps</title>
+
+    <!-- Tailwind css link -->
+<script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+<!-- daisy UI link -->
+<link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+
+<!-- Font Awesome link for iCON -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+<!-- Google Fonts link -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap" rel="stylesheet">
+
+<style>
+  * {
+    font-family: "Geist", sans-serif;
+  }
+</style>
 </head>
-<body>
-    
+<body class="py-10 px-50 bg-gray-300 mx-auto">
+    <section id="job-dashboard-container">
+            <h1 class="text-xl font-bold mb-5 mx-auto">Job Application Tracker</h1>
+    <div id="job-dashboard" class="grid grid-cols-1 md:grid-cols-3 gap-4" >
+        <div class="card bg-base-100 w-full max-w-sm shrink-0 shadow rounded-lg">
+            <div class="card-body">
+              <fieldset class="fieldset">
+                <label class="label text-neutral font-normal">Total</label>
+                <p id="total-jobs" class="font-bold text-xl">0</p>
+              </fieldset>
+            </div>
+        </div>
+        <div class="card bg-base-100 w-full max-w-sm shrink-0 shadow rounded-lg">
+            <div class="card-body">
+              <fieldset class="fieldset">
+                <label class="label text-neutral font-normal">Interview</label>
+                <p id="total-interview" class="text-success font-bold text-xl">0</p>
+              </fieldset>
+            </div>
+        </div>
+        <div  class="card bg-base-100 w-full max-w-sm shrink-0 shadow rounded-lg">
+            <div class="card-body">
+              <fieldset class="fieldset">
+                <label class="label text-neutral font-normal">Rejected</label>
+                <p id="total-rejected" class="text-error font-bold text-xl">0</p>
+              </fieldset>
+            </div>
+        </div>
+    </div> <br><br>
+    </section>
+    <hr>
+    <br>
+    <section id="job-details" class="mx-auto py-5 space-y-5">
+        <div class="flex justify-between items-center">
+            <h2 class="font-bold text-2xl"> Available Jobs</h2>
+            <p id="display-total-job" class="text-neutral font-normal">8 jobs</p>                  
+        </div>
+         <div class="tooltip" data-tip="">
+            <button id="all-job" class="btn btn-primary font-normal">All</button>
+            <button id="interview-call" class="btn btn-primary-content font-normal">
+            <a href="./noJobs.html">Interview</a></button>
+            <button id="reject-call" class="btn btn-primary-content font-normal">
+            <a href="./noJobs.html">Rejected</a></button>
+          </div>
+     <!-- Job List No: 1 -->
+          <div class="card bg-base-100 shadow rounded-2xl">
+            <div class="card-body">
+              <div class="flex justify-between items-start gap-4">               
+                <div class="flex-1">
+                  <label class="text-lg font-bold">Mobile First Corp</label>
+                  <p>React Native Developer</p> <br>
+                  <p>Remote • Full-time • $130,000 - $175,000</p><br>
+                  <div role="tablist" class="tabs">
+                    <a role="tab" class="tab tab-active bg-gray-300 rounded-md">NOT APPLIED</a>
+                    <button onclick="showOnly('interview-selected')" id="interview-add" role="tab" class="tab tab-active bg-base-300 border-1 border-green-500 rounded-md text-success font-semibold hidden">INTERVIEW</button>
+                    <button onclick="showOnly('reject-selected')" id="reject-add" role="tab" class="tab tab-active bg-base-300 rounded-md border-1 border-red-500 text-error font-semibold hidden">REJECTED</button>
+                  </div> <br>
+                  <p>Build cross-platform mobile applications using React Native. Work on products used by millions of users worldwide.</p> <br>
+                  <div role="tablist" class="tabs flex gap-2">
+                    <button id="interview-selected" role="tab" class="tab tab-active bg-base-300 border-1 border-green-500 rounded-md text-success font-semibold hover:bg-green-200">INTERVIEW</button>
+                    <button id="reject-selected" role="tab" class="tab tab-active bg-base-300 rounded-md border-1 border-red-500 text-error font-semibold hover:bg-red-200">REJECTED</button>
+                  </div>
+                </div>
+          
+                <div>
+                  <img src="./delete-icon.png" alt="" class="w-10 h-10">
+                </div>
+          
+              </div>
+            </div>
+          </div>
+     <!-- ------ -->
+           <!-- Job List No: 2 -->
+           <div class="card bg-base-100 shadow rounded-2xl">
+            <div class="card-body">
+              <div class="flex justify-between items-start gap-4">               
+                <div class="flex-1">
+                  <label class="text-lg font-bold">WebFlow Agency</label>
+                  <p>Web Designer & Developer</p> <br>
+                  <p>Los Angeles, CA
+                    • 
+                   Part-time 
+                   •
+                    $80,000 - $120,000</p><br>
+                  <div role="tablist" class="tabs">
+                    <a role="tab" class="tab tab-active bg-gray-300 rounded-md">NOT APPLIED</a>
+                    <button id="interview-add" role="tab" class="tab tab-active bg-base-300 border-1 border-green-500 rounded-md text-success font-semibold hidden">INTERVIEW</button>
+                    <button id="reject-add" role="tab" class="tab tab-active bg-base-300 rounded-md border-1 border-red-500 text-error font-semibold hidden">REJECTED</button>
+                  </div> <br>
+                  <p>Create stunning web experiences for high-profile clients. Must have portfolio and experience with modern web design trends.</p> <br>
+                  <div role="tablist" class="tabs flex gap-2">
+                    <button id="interview-selected" role="tab" class="tab tab-active bg-base-300 border-1 border-green-500 rounded-md text-success font-semibold hover:bg-green-200">INTERVIEW</button>
+                    <button id="reject-selected" role="tab" class="tab tab-active bg-base-300 rounded-md border-1 border-red-500 text-error font-semibold hover:bg-red-200">REJECTED</button>
+                  </div>
+                </div>
+          
+                <div>
+                  <img src="./delete-icon.png" alt="" class="w-10 h-10">
+                </div>
+          
+              </div>
+            </div>
+          </div>
+     <!-- ------ -->
+           <!-- Job List No: 3 -->
+           <div class="card bg-base-100 shadow rounded-2xl">
+            <div class="card-body">
+              <div class="flex justify-between items-start gap-4">               
+                <div class="flex-1">
+                  <label class="text-lg font-bold">DataViz Solutions</label>
+                  <p>Data Visualization Specialist</p> <br>
+                  <p>Boston, MA 
+                    •
+                     Full-time
+                     •
+                     $125,000 - $165,000</p><br>
+                  <div role="tablist" class="tabs">
+                    <a role="tab" class="tab tab-active bg-gray-300 rounded-md">NOT APPLIED</a>
+                    <button id="interview-add" role="tab" class="tab tab-active bg-base-300 border-1 border-green-500 rounded-md text-success font-semibold hidden">INTERVIEW</button>
+                    <button id="reject-add" role="tab" class="tab tab-active bg-base-300 rounded-md border-1 border-red-500 text-error font-semibold hidden">REJECTED</button>
+                  </div> <br>
+                 
+                  <p>Transform complex data into compelling visualizations. Required skills: D3.js, React, and strong analytical thinking.
+                </p> <br>
+                  <div role="tablist" class="tabs flex gap-2">
+                    <button id="interview-selected" role="tab" class="tab tab-active bg-base-300 border-1 border-green-500 rounded-md text-success font-semibold hover:bg-green-200">INTERVIEW</button>
+                    <button id="reject-selected" role="tab" class="tab tab-active bg-base-300 rounded-md border-1 border-red-500 text-error font-semibold hover:bg-red-200">REJECTED</button>
+                  </div>
+                </div>
+          
+                <div>
+                  <img src="./delete-icon.png" alt="" class="w-10 h-10">
+                </div>
+          
+              </div>
+            </div>
+          </div>
+     <!-- ------ -->
+           <!-- Job List No: 4 -->
+           <div class="card bg-base-100 shadow rounded-2xl">
+            <div class="card-body">
+              <div class="flex justify-between items-start gap-4">               
+                <div class="flex-1">
+                  <label class="text-lg font-bold">CloudFirst Inc</label>
+                  <p>Backend Developer</p> <br>
+                  <p>Seattle, WA
+                    •
+                    Full-time
+                    •
+                    $140,000 - $190,000</p><br>
+                  <div role="tablist" class="tabs">
+                    <a role="tab" class="tab tab-active bg-gray-300 rounded-md">NOT APPLIED</a>
+                    <button id="interview-add" role="tab" class="tab tab-active bg-base-300 border-1 border-green-500 rounded-md text-success font-semibold hidden">INTERVIEW</button>
+                    <button id="reject-add" role="tab" class="tab tab-active bg-base-300 rounded-md border-1 border-red-500 text-error font-semibold hidden">REJECTED</button>
+                  </div> <br>
+                
+                  <p>Design and maintain scalable backend systems using Python and AWS. Work with modern DevOps practices and cloud infrastructure.</p> <br>
+                  <div role="tablist" class="tabs flex gap-2">
+                    <button id="interview-selected" role="tab" class="tab tab-active bg-base-300 border-1 border-green-500 rounded-md text-success font-semibold hover:bg-green-200">INTERVIEW</button>
+                    <button id="reject-selected" role="tab" class="tab tab-active bg-base-300 rounded-md border-1 border-red-500 text-error font-semibold hover:bg-red-200">REJECTED</button>
+                  </div>
+                </div>
+          
+                <div>
+                  <img src="./delete-icon.png" alt="" class="w-10 h-10">
+                </div>
+          
+              </div>
+            </div>
+          </div>
+     <!-- ------ -->
+           <!-- Job List No: 5 -->
+           <div class="card bg-base-100 shadow rounded-2xl">
+            <div class="card-body">
+              <div class="flex justify-between items-start gap-4">               
+                <div class="flex-1">
+                  <label class="text-lg font-bold">Innovation Labs</label>
+                  <p>UI/UX Engineer</p> <br>
+                  <p>Austin, TX
+                    •
+                    Full-time
+                    •
+                    $110,000 - $150,000</p><br>
+                  <div role="tablist" class="tabs">
+                    <a role="tab" class="tab tab-active bg-gray-300 rounded-md">NOT APPLIED</a>
+                    <button id="interview-add" role="tab" class="tab tab-active bg-base-300 border-1 border-green-500 rounded-md text-success font-semibold hidden">INTERVIEW</button>
+                    <button id="reject-add" role="tab" class="tab tab-active bg-base-300 rounded-md border-1 border-red-500 text-error font-semibold hidden">REJECTED</button>
+                  </div> <br>
+                
+                  <p>Create beautiful and functional user interfaces for our suite of products. Strong design skills and frontend development expertise required.</p> <br>
+                  <div role="tablist" class="tabs flex gap-2">
+                    <button id="interview-selected" role="tab" class="tab tab-active bg-base-300 border-1 border-green-500 rounded-md text-success font-semibold hover:bg-green-200">INTERVIEW</button>
+                    <button id="reject-selected" role="tab" class="tab tab-active bg-base-300 rounded-md border-1 border-red-500 text-error font-semibold hover:bg-red-200">REJECTED</button>
+                  </div>
+                </div>
+          
+                <div>
+                  <img src="./delete-icon.png" alt="" class="w-10 h-10">
+                </div>
+          
+              </div>
+            </div>
+          </div>
+     <!-- ------ -->
+           <!-- Job List No: 6 -->
+           <div class="card bg-base-100 shadow rounded-2xl">
+            <div class="card-body">
+              <div class="flex justify-between items-start gap-4">               
+                <div class="flex-1">
+                  <label class="text-lg font-bold">MegaCorp Solutions</label>
+                  <p>JavaScript Developer</p> <br>
+                  <p>New York, NY • Full-time • $130,000 - $170,000</p><br>
+                  <div role="tablist" class="tabs">
+                    <a role="tab" class="tab tab-active bg-gray-300 rounded-md">NOT APPLIED</a>
+                    <button onclick="showOnly('interview-selected')" id="interview-add" role="tab" class="tab tab-active bg-base-300 border-1 border-green-500 rounded-md text-success font-semibold hidden">INTERVIEW</button>
+                    <button onclick="showOnly('reject-selected')" id="reject-add" role="tab" class="tab tab-active bg-base-300 rounded-md border-1 border-red-500 text-error font-semibold hidden">REJECTED</button>
+                  </div> <br>
+                  <p>Build enterprise applications with JavaScript and modern frameworks. We offer competitive compensation, health insurance, and professional development<br>opportunities.</p> <br>
+                  <div role="tablist" class="tabs flex gap-2">
+                    <button id="interview-selected" role="tab" class="tab tab-active bg-base-300 border-1 border-green-500 rounded-md text-success font-semibold hover:bg-green-200">INTERVIEW</button>
+                    <button id="reject-selected" role="tab" class="tab tab-active bg-base-300 rounded-md border-1 border-red-500 text-error font-semibold hover:bg-red-200">REJECTED</button>
+                  </div>
+                </div>
+          
+                <div>
+                  <img src="./delete-icon.png" alt="" class="w-10 h-10">
+                </div>
+          
+              </div>
+            </div>
+          </div>
+     <!-- ------ -->
+           <!-- Job List No: 7 -->
+           <div class="card bg-base-100 shadow rounded-2xl">
+            <div class="card-body">
+              <div class="flex justify-between items-start gap-4">               
+                <div class="flex-1">
+                  <label class="text-lg font-bold">StartupXYZ</label>
+                  <p>Full Stack Engineer</p> <br>
+                  <p>Remote • Full-time • $120,000 - $160,000</p><br>
+                  <div role="tablist" class="tabs">
+                    <a role="tab" class="tab tab-active bg-gray-300 rounded-md">NOT APPLIED</a>
+                    <button onclick="showOnly('interview-selected')" id="interview-add" role="tab" class="tab tab-active bg-base-300 border-1 border-green-500 rounded-md text-success font-semibold hidden">INTERVIEW</button>
+                    <button onclick="showOnly('reject-selected')" id="reject-add" role="tab" class="tab tab-active bg-base-300 rounded-md border-1 border-red-500 text-error font-semibold hidden">REJECTED</button>
+                  </div> <br>
+                  <p>Join our fast-growing startup and work on our core platform. Experience with Node.js and React required. Great benefits and equity package included.</p> <br>
+                  <div role="tablist" class="tabs flex gap-2">
+                    <button id="interview-selected" role="tab" class="tab tab-active bg-base-300 border-1 border-green-500 rounded-md text-success font-semibold hover:bg-green-200">INTERVIEW</button>
+                    <button id="reject-selected" role="tab" class="tab tab-active bg-base-300 rounded-md border-1 border-red-500 text-error font-semibold hover:bg-red-200">REJECTED</button>
+                  </div>
+                </div>
+          
+                <div>
+                  <img src="./delete-icon.png" alt="" class="w-10 h-10">
+                </div>
+          
+              </div>
+            </div>
+          </div>
+     <!-- ------ -->
+           <!-- Job List No: 8 -->
+           <div class="card bg-base-100 shadow rounded-2xl">
+            <div class="card-body">
+              <div class="flex justify-between items-start gap-4">               
+                <div class="flex-1">
+                  <label class="text-lg font-bold">TechCorp Industries</label>
+                  <p>Senior Frontend Developer</p> <br>
+                  <p>San Francisco, CA • Full-time • $130,000 - $175,000</p><br>
+                  <div role="tablist" class="tabs">
+                    <a role="tab" class="tab tab-active bg-gray-300 rounded-md">NOT APPLIED</a>
+                    <button onclick="showOnly('interview-selected')" id="interview-add" role="tab" class="tab tab-active bg-base-300 border-1 border-green-500 rounded-md text-success font-semibold hidden">INTERVIEW</button>
+                    <button onclick="showOnly('reject-selected')" id="reject-add" role="tab" class="tab tab-active bg-base-300 rounded-md border-1 border-red-500 text-error font-semibold hidden">REJECTED</button>
+                  </div> <br>
+                  <p>We are looking for an experienced Frontend Developer to build scalable web applications using React and TypeScript. You will work with a talented team on cutting-<br>edge projects.</p> <br>
+                  <div role="tablist" class="tabs flex gap-2">
+                    <button id="interview-selected" role="tab" class="tab tab-active bg-base-300 border-1 border-green-500 rounded-md text-success font-semibold hover:bg-green-200">INTERVIEW</button>
+                    <button id="reject-selected" role="tab" class="tab tab-active bg-base-300 rounded-md border-1 border-red-500 text-error font-semibold hover:bg-red-200">REJECTED</button>
+                  </div>
+                </div>
+          
+                <div>
+                  <img src="./delete-icon.png" alt="" class="w-10 h-10">
+                </div>
+          
+              </div>
+            </div>
+          </div>
+     <!-- ------ -->
+    </section>
+    <script src="./scripts/main.js"></script>
 </body>
 </html>
