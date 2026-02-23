@@ -57,18 +57,20 @@
     </section>
     <hr>
     <br>
-    <section id="job-details" class="mx-auto py-5 space-y-5">
+    <section id="job-details" class="mx-auto py-2 space-y-2">
         <div class="flex justify-between items-center">
             <h2 class="font-bold text-2xl"> Available Jobs</h2>
             <p id="total-jobs-number" class="text-neutral font-normal"> </p>
         </div>
-         <div id class="tooltip" data-tip="">
-            <button id="all-job" class="btn btn-primary font-normal">All</button>
-            <button id="interview-call-tab" title="No Jobs" class="btn btn-primary-content font-normal">Interview</button>
-           
-            <button id="reject-call-tab" class="btn btn-primary-content font-normal">Rejected</button>
-            
+        <section id="unavailable-job-container"> 
+          <div role="tablist" class="tabs gap-2">
+            <button id="all-job" role="tab" class="btn tab-active rounded-md font-normal btn-primary text-neutral-content">All</button>
+            <button id="interview-call-tab" role="tab" class="btn rounded-md font-normal text-neutral btn-primary-content">Interview</button>
+            <button id="reject-call-tab" role="tab" class="btn rounded-md font-normal text-neutral btn-primary-content">Rejected</button>
           </div>
+        </section>  
+
+    <section id="all-job-container" class="job-container mx-auto py-5 space-y-5">        
      <!-- Job List No: 1 -->
           <div class="card job bg-base-100 shadow rounded-2xl">
             <div class="card-body">
@@ -79,19 +81,19 @@
                   <p>Remote • Full-time • $130,000 - $175,000</p><br>
                   <div role="tablist" class="tabs gap-2">
                     <a role="tab" class="tab tab-active bg-gray-300 rounded-md status-label">NOT APPLIED</a>
-                    <button id="interview-add" class="btn interview-btn"></button>
-                    <button id="reject-add" class="btn reject-btn" ></button>
+                    <button id="interview-add" class="btn"></button>
+                    <button id="reject-add" class="btn" ></button>
                   </div> <br>
                   <p>Build cross-platform mobile applications using React Native. Work on products used by millions of users worldwide.</p> <br>
                   <div class="flex gap-2">
-                    <button id="interview-selected1" class="btn btn-outline btn-success interview-btn">INTERVIEW</button>
-                    <button id="reject-selected1" class="btn btn-outline btn-error reject-btn">REJECTED</button>
+                    <button id="interview-selected1" data-status="interview" class="btn btn-outline btn-success interview-btn">INTERVIEW</button>
+                    <button id="reject-selected1" data-status="rejected" class="btn btn-outline btn-error reject-btn">REJECTED</button>
                   
                   </div>
                 </div>
           
-                <div>
-                  <img src="./delete-icon.png" alt="" class="w-10 h-10">
+                <div class="img-contain">
+                  <img src="./delete-icon.png" alt="" class="w-10 h-10 delete-img">
                 </div>
           
               </div>
@@ -112,18 +114,18 @@
                     $80,000 - $120,000</p><br>
                   <div role="tablist" class="tabs gap-2">
                     <a role="tab" class="tab tab-active bg-gray-300 rounded-md status-label">NOT APPLIED</a>
-                    <button id="interview-add" class="btn interview-btn"></button>
-                    <button id="reject-add" class="btn reject-btn" ></button>
+                    <button id="interview-add" class="btn"></button>
+                    <button id="reject-add" class="btn" ></button>
                   </div> <br>
                   <p>Create stunning web experiences for high-profile clients. Must have portfolio and experience with modern web design trends.</p> <br>
                   <div class="flex gap-2">
-                <button id="interview-selected" class="btn btn-outline btn-success interview-btn">INTERVIEW<button>
-                <button id="reject-selected" class="btn btn-outline btn-error reject-btn">REJECTED</button>
+                <button id="interview-selected2" data-status="interview" class="btn btn-outline btn-success interview-btn">INTERVIEW<button>
+                <button id="reject-selected2" data-status="rejected" class="btn btn-outline btn-error reject-btn">REJECTED</button>
                   </div>
                 </div>
           
                 <div>
-                  <img src="./delete-icon.png" alt="" class="w-10 h-10">
+                  <img src="./delete-icon.png" alt="" class="w-10 h-10 delete-img">
                 </div>
           
               </div>
@@ -144,20 +146,20 @@
                      $125,000 - $165,000</p><br>
                   <div role="tablist" class="tabs gap-2">
                     <a role="tab" class="tab tab-active bg-gray-300 rounded-md status-label">NOT APPLIED</a>
-                    <button id="interview-add" class="btn interview-btn"></button>
-                    <button id="reject-add" class="btn reject-btn" ></button>
+                    <button id="interview-add" class="btn"></button>
+                    <button id="reject-add" class="btn" ></button>
                   </div> <br>
                  
                   <p>Transform complex data into compelling visualizations. Required skills: D3.js, React, and strong analytical thinking.
                 </p> <br>
                   <div class="flex gap-2">
-                    <button id="interview-selected" class="btn btn-outline btn-success interview-btn">INTERVIEW<button>
-                        <button id="reject-selected" class="btn btn-outline btn-error reject-btn">REJECTED</button>
+                    <button id="interview-selected3" data-status="interview" class="btn btn-outline btn-success interview-btn">INTERVIEW<button>
+                        <button id="reject-selected3" data-status="rejected" class="btn btn-outline btn-error reject-btn">REJECTED</button>
                   </div>
                 </div>
           
                 <div>
-                  <img src="./delete-icon.png" alt="" class="w-10 h-10">
+                  <img src="./delete-icon.png" alt="" class="w-10 h-10 delete-img">
                 </div>
           
               </div>
@@ -178,19 +180,19 @@
                     $140,000 - $190,000</p><br>
                   <div role="tablist" class="tabs gap-2">
                     <a role="tab" class="tab tab-active bg-gray-300 rounded-md status-label">NOT APPLIED</a>
-                    <button id="interview-add" class="btn interview-btn"></button>
-                    <button id="reject-add" class="btn reject-btn" ></button>
+                    <button id="interview-add" class="btn"></button>
+                    <button id="reject-add" class="btn" ></button>
                   </div> <br>
                 
                   <p>Design and maintain scalable backend systems using Python and AWS. Work with modern DevOps practices and cloud infrastructure.</p> <br>
                   <div class="flex gap-2">
-                    <button id="interview-selected" class="btn btn-outline btn-success interview-btn">INTERVIEW<button></button>
-                        <button id="reject-selected" class="btn btn-outline btn-error reject-btn">REJECTED</button>
+                    <button id="interview-selected4" data-status="interview" class="btn btn-outline btn-success interview-btn">INTERVIEW<button></button>
+                        <button id="reject-selected4" data-status="rejected" class="btn btn-outline btn-error reject-btn">REJECTED</button>
                   </div>
                 </div>
           
                 <div>
-                  <img src="./delete-icon.png" alt="" class="w-10 h-10">
+                  <img src="./delete-icon.png" alt="" class="w-10 h-10 delete-img">
                 </div>
           
               </div>
@@ -211,19 +213,19 @@
                     $110,000 - $150,000</p><br>
                   <div role="tablist" class="tabs gap-2">
                     <a role="tab" class="tab tab-active bg-gray-300 rounded-md status-label">NOT APPLIED</a>
-                    <button id="interview-add" class="btn interview-btn"></button>
-                    <button id="reject-add" class="btn reject-btn" ></button>
+                    <button id="interview-add" class="btn"></button>
+                    <button id="reject-add" class="btn " ></button>
                   </div> <br>
                 
                   <p>Create beautiful and functional user interfaces for our suite of products. Strong design skills and frontend development expertise required.</p> <br>
                   <div class="flex gap-2">
-                    <button id="interview-selected" class="btn btn-outline btn-success interview-btn">INTERVIEW<button></button>
-                        <button id="reject-selected" class="btn btn-outline btn-error reject-btn">REJECTED</button>
+                    <button id="interview-selected5" data-status="interview" class="btn btn-outline btn-success interview-btn">INTERVIEW<button></button>
+                    <button id="reject-selected5" data-status="rejected" class="btn btn-outline btn-error reject-btn">REJECTED</button>
                   </div>
                 </div>
           
                 <div>
-                  <img src="./delete-icon.png" alt="" class="w-10 h-10">
+                  <img src="./delete-icon.png" alt="" class="w-10 h-10 delete-img">
                 </div>
           
               </div>
@@ -240,18 +242,18 @@
                   <p>New York, NY • Full-time • $130,000 - $170,000</p><br>
                   <div role="tablist" class="tabs gap-2">
                     <a role="tab" class="tab tab-active bg-gray-300 rounded-md status-label">NOT APPLIED</a>
-                    <button id="interview-add" class="btn interview-btn"></button>
-                    <button id="reject-add" class="btn reject-btn" ></button>
+                    <button id="interview-add" class="btn "></button>
+                    <button id="reject-add" class="btn " ></button>
                   </div> <br>
                   <p>Build enterprise applications with JavaScript and modern frameworks. We offer competitive compensation, health insurance, and professional development<br>opportunities.</p> <br>
                   <div class="flex gap-2">
-                    <button id="interview-selected" class="btn btn-outline btn-success interview-btn">INTERVIEW<button></button>
-                    <button id="reject-selected" class="btn btn-outline btn-error reject-btn">REJECTED</button>
+                    <button id="interview-selected6" data-status="interview" class="btn btn-outline btn-success interview-btn">INTERVIEW<button></button>
+                    <button id="reject-selected6" data-status="rejected" class="btn btn-outline btn-error reject-btn">REJECTED</button>
                   </div>
                 </div>
           
                 <div>
-                  <img src="./delete-icon.png" alt="" class="w-10 h-10">
+                  <img src="./delete-icon.png" alt="" class="w-10 h-10 delete-img">
                 </div>
           
               </div>
@@ -268,18 +270,18 @@
                   <p>Remote • Full-time • $120,000 - $160,000</p><br>
                   <div role="tablist" class="tabs gap-2">
                     <a role="tab" class="tab tab-active bg-gray-300 rounded-md status-label">NOT APPLIED</a>
-                    <button id="interview-add" class="btn interview-btn"></button>
-                    <button id="reject-add" class="btn reject-btn" ></button>
+                    <button id="interview-add" class="btn"></button>
+                    <button id="reject-add" class="btn " ></button>
                   </div> <br>
                   <p>Join our fast-growing startup and work on our core platform. Experience with Node.js and React required. Great benefits and equity package included.</p> <br>
                   <div class="flex gap-2">
-                    <button id="interview-selected" class="btn btn-outline btn-success interview-btn">INTERVIEW<button></button>
-                        <button id="reject-selected" class="btn btn-outline btn-error reject-btn">REJECTED</button>
+                    <button id="interview-selected7" data-status="interview" class="btn btn-outline btn-success interview-btn">INTERVIEW<button></button>
+                    <button id="reject-selected7" data-status="rejected" class="btn btn-outline btn-error reject-btn">REJECTED</button>
                   </div>
                 </div>
           
                 <div>
-                  <img src="./delete-icon.png" alt="" class="w-10 h-10">
+                  <img src="./delete-icon.png" alt="" class="w-10 h-10 delete-img">
                 </div>
           
               </div>
@@ -296,18 +298,18 @@
                   <p>San Francisco, CA • Full-time • $130,000 - $175,000</p><br>
                   <div role="tablist" class="tabs gap-2">
                     <a role="tab" class="tab tab-active bg-gray-300 rounded-md status-label">NOT APPLIED</a>
-                    <button id="interview-add" class="btn interview-btn"></button>
-                    <button id="reject-add" class="btn reject-btn" ></button>
+                    <button id="interview-add" class="btn"></button>
+                    <button id="reject-add" class="btn" ></button>
                   </div> <br>
                   <p>We are looking for an experienced Frontend Developer to build scalable web applications using React and TypeScript. You will work with a talented team on cutting-<br>edge projects.</p> <br>
                   <div class="flex gap-2">
-                    <button id="interview-selected" class="btn btn-outline btn-success interview-btn">INTERVIEW<button></button>
-                        <button id="reject-selected" class="btn btn-outline btn-error reject-btn">REJECTED</button>
+                    <button id="interview-selected8" data-status="interview" class="btn btn-outline btn-success interview-btn">INTERVIEW<button></button>
+                    <button id="reject-selected8" data-status="rejected" class="btn btn-outline btn-error reject-btn">REJECTED</button>
                   </div>
                 </div>
           
                 <div>
-                  <img src="./delete-icon.png" alt="" class="w-10 h-10">
+                  <img src="./delete-icon.png" alt="" class="w-10 h-10 delete-img">
                 </div>
           
               </div>
@@ -315,6 +317,7 @@
           </div>
      <!-- ------ -->
     </section>
+ </section>
     <script src="./scripts/main.js"></script>
     
 </body>
