@@ -303,11 +303,11 @@ div.innerHTML = `
         ${interview.jobTitle}
       </h2>
 
-      <p class="text-gray-700">
+      <p class="text-gray-700 job-position">
         ${interview.jobPosition}
       </p>
 
-      <p class="text-sm text-gray-700">
+      <p class="text-sm text-gray-700 job-location">
         ${interview.jobLocation}
       </p>
 
@@ -316,7 +316,7 @@ div.innerHTML = `
         inline-block px-3 py-1 text-sm 
         bg-green-400 text-green-900 
         rounded-md font-medium
-      ">
+      status-not-apply status-interview status-rejected">
         ${interview.statusInfo}
       </span>
 
@@ -332,7 +332,7 @@ div.innerHTML = `
   </div>
 
   <!-- Description -->
-  <p class="text-gray-700 leading-relaxed">
+  <p class="text-gray-700 leading-relaxed job-description">
     ${interview.jobDescription}
   </p>
 
@@ -402,11 +402,11 @@ div.innerHTML = `
         ${reject.jobTitle}
       </h2>
 
-      <p class="text-gray-700">
+      <p class="text-gray-700 job-position">
         ${reject.jobPosition}
       </p>
 
-      <p class="text-sm text-gray-700">
+      <p class="text-sm text-gray-700 job-location">
         ${reject.jobLocation}
       </p>
 
@@ -415,7 +415,7 @@ div.innerHTML = `
         inline-block px-3 py-1 text-sm 
         bg-red-300 text-red-900 
         rounded-md font-medium
-      ">
+      status-not-apply status-interview status-rejected">
         ${reject.statusInfo}
       </span>
 
@@ -431,7 +431,7 @@ div.innerHTML = `
   </div>
 
   <!-- Description -->
-  <p class="text-gray-700 leading-relaxed">
+  <p class="text-gray-700 leading-relaxed job-description">
     ${reject.jobDescription}
   </p>
 
