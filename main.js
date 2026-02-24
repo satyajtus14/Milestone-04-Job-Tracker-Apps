@@ -123,10 +123,11 @@ function updateTotalJobsNumber() {
 
 /* Manage Tab by Event Bubbling */
 mainContainer.addEventListener('click',function(event){
-console.log(event.target.parentNode.parentNode.parentNode);
+// console.log(event.target.parentNode.parentNode.parentNode);
 
   if(event.target.classList.contains('interview-btn')){
-  const parentNode = event.target.parentNode.parentNode.parentNode;
+  // const parentNode = event.target.parentNode.parentNode.parentNode;
+  const parentNode = event.target.closest('.job');
   const jobTitle = parentNode.querySelector(".job-title").innerText;
   const jobPosition = parentNode.querySelector(".job-position").innerText;
   const jobLocation = parentNode.querySelector(".job-location").innerText;
@@ -136,13 +137,13 @@ console.log(event.target.parentNode.parentNode.parentNode);
   const rejectInfo = parentNode.querySelector(".reject-btn").innerText;
   // const deleteIMG = parentNode.querySelector(".delete-img").innerText;
  
-  parentNode.querySelector(".status-not-apply").innerText = 'Interview';
+  parentNode.querySelector(".status-not-apply").innerText = 'INTERVIEW';
   // console.log(jobTitle,jobPosition,jobLocation,statusInfo,jobDescription,interviewInfo,rejectInfo);
   const cardInfo = {
     jobTitle,
     jobPosition,
     jobLocation,
-    statusInfo:'Interview',
+    statusInfo:'INTERVIEW',
     statusClass: 'bg-green-100 text-green-700',
     jobDescription,
     interviewInfo,
@@ -170,14 +171,13 @@ updateTotalJobsNumber();
 if(currentStatus == 'reject-call-tab'){
   renderRejectJobsCall();
 }
-else if(currentStatus === 'interview-call-tab'){
-  renderInterviewJobsCall();
-}
+
   
 }
 
 else if(event.target.classList.contains('reject-btn')){
-  const parentNode = event.target.parentNode.parentNode.parentNode;
+  // const parentNode = event.target.parentNode.parentNode.parentNode;
+  const parentNode = event.target.closest('.job');
   const jobTitle = parentNode.querySelector(".job-title").innerText;
   const jobPosition = parentNode.querySelector(".job-position").innerText;
   const jobLocation = parentNode.querySelector(".job-location").innerText;
@@ -187,13 +187,14 @@ else if(event.target.classList.contains('reject-btn')){
   const rejectInfo = parentNode.querySelector(".reject-btn").innerText;
   // const deleteIMG = parentNode.querySelector(".delete-img").innerText;
  
-  parentNode.querySelector(".status-not-apply").innerText = 'Rejected';
+  parentNode.querySelector(".status-not-apply").innerText = 'REJECTED';
   // console.log(jobTitle,jobPosition,jobLocation,statusInfo,jobDescription,interviewInfo,rejectInfo);
   const cardInfo = {
     jobTitle,
     jobPosition,
     jobLocation,
-    statusInfo:'Rejected',
+    statusInfo:'REJECTED',
+    statusClass: 'bg-red-100 text-red-700',
     jobDescription,
     interviewInfo,
     rejectInfo,
@@ -213,25 +214,45 @@ else if(event.target.classList.contains('reject-btn')){
 
   calculationJobs();
   updateTotalJobsNumber();
+  
   if(currentStatus === 'interview-call-tab'){
     renderInterviewJobsCall();
  }
- else if(currentStatus === 'reject-call-tab'){
-    renderRejectJobsCall();
- }
-
 
 }
 
 /* Delete job by selection delete icon image */
 else if(event.target.classList.contains('delete-img')){
+
   const jobCard = event.target.closest('.job');
+  // console.log(jobCard);
+
+  // Get job title before removing
+  const jobTitle = jobCard.querySelector('.job-title').innerText;
+  // console.log(jobTitle);
+
+  // Remove from interview list
+  interviewList = interviewList.filter(item => item.jobTitle !== jobTitle);
+  // console.log(interviewList);
+  // Remove from reject list
+  rejectList = rejectList.filter(item => item.jobTitle !== jobTitle);
+  // console.log(rejectList);
+
+  // Remove from DOM
   jobCard.remove();
 
+  // Update counters
   calculationJobs();
- updateTotalJobsNumber();
-}
+  updateTotalJobsNumber();
 
+  // Re-render filtered section if needed
+  if(currentStatus === 'interview-call-tab'){
+      renderInterviewJobsCall();
+  }
+  else if(currentStatus === 'reject-call-tab'){
+      renderRejectJobsCall();
+  }
+}
 
 })
 
@@ -278,7 +299,7 @@ div.innerHTML = `
     <!-- Left Content -->
     <div class="space-y-2">
 
-      <h2 class="text-xl font-semibold">
+      <h2 class="text-xl font-semibold job-title">
         ${interview.jobTitle}
       </h2>
 
@@ -377,7 +398,7 @@ div.innerHTML = `
     <!-- Left Content -->
     <div class="space-y-2">
 
-      <h2 class="text-xl font-semibold">
+      <h2 class="text-xl font-semibold job-title">
         ${reject.jobTitle}
       </h2>
 
