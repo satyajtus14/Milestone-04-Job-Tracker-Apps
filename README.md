@@ -2,16 +2,6 @@
 
 <div align="center">
 
-![Logo](jobicon.png) <!-- Using detected asset as logo -->
-
-[![GitHub stars](https://img.shields.io/github/stars/satyajtus14/Milestone-04-Job-Tracker-Apps?style=for-the-badge)](https://github.com/satyajtus14/Milestone-04-Job-Tracker-Apps/stargazers)
-
-[![GitHub forks](https://img.shields.io/github/forks/satyajtus14/Milestone-04-Job-Tracker-Apps?style=for-the-badge)](https://github.com/satyajtus14/Milestone-04-Job-Tracker-Apps/network)
-
-[![GitHub issues](https://img.shields.io/github/issues/satyajtus14/Milestone-04-Job-Tracker-Apps?style=for-the-badge)](https://github.com/satyajtus14/Milestone-04-Job-Tracker-Apps/issues)
-
-[![GitHub license](https://img.shields.io/github/license/satyajtus14/Milestone-04-Job-Tracker-Apps?style=for-the-badge)](LICENSE)
-
 **A simple and intuitive client-side web application to track your job applications, built with vanilla JavaScript, HTML, Tailwind CSS, and Daisy UI.**
 
 [Live Demo](https://satyajtus14.github.io/Milestone-04-Job-Tracker-Apps/)
